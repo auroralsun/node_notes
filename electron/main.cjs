@@ -38,11 +38,11 @@ function createMainWindow() {
     minHeight: 760,
     autoHideMenuBar: true,
     title: '知识图谱笔记',
-    backgroundColor: '#f8f3ea',
+    backgroundColor: '#fdfaf5',
     titleBarStyle: 'hidden',
     titleBarOverlay: {
-      color: '#f8f3ea',
-      symbolColor: '#3f3124',
+      color: '#fdfaf5',
+      symbolColor: '#5d4228',
       height: 56
     },
     show: false,
