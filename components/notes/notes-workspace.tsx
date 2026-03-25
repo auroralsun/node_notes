@@ -48,6 +48,7 @@ type NotesWorkspaceProps = {
 
 type PropertyType = 'string' | 'number' | 'boolean'
 type SortMode = 'updated-desc' | 'name-asc'
+type NoteContextMenu = { noteId: string; x: number; y: number } | null
 
 function stringifyValue(value: JsonScalar) {
   if (typeof value === 'boolean') return value ? 'true' : 'false'
@@ -129,6 +130,7 @@ export function NotesWorkspace({ notes, relationTemplates, entityTemplates, sele
   const [createTemplateId, setCreateTemplateId] = useState('')
   const [createError, setCreateError] = useState('')
   const [createSaving, setCreateSaving] = useState(false)
+  const [contextMenu, setContextMenu] = useState<NoteContextMenu>(null)
 
   useEffect(() => {
     setNoteItems(notes)
@@ -209,6 +211,19 @@ export function NotesWorkspace({ notes, relationTemplates, entityTemplates, sele
     void loadNoteDetail(activeNoteId)
   }, [activeNoteId])
 
+  useEffect(() => {
+    if (!contextMenu) return
+
+    function closeContextMenu() {
+      setContextMenu(null)
+    }
+
+    window.addEventListener('click', closeContextMenu)
+    return () => {
+      window.removeEventListener('click', closeContextMenu)
+    }
+  }, [contextMenu])
+
   function syncListItem(note: Pick<NoteDetail, 'id' | 'name' | 'type' | 'summary' | 'updatedAt'>) {
     setNoteItems((current) =>
       current.map((item) =>
@@ -226,6 +241,7 @@ export function NotesWorkspace({ notes, relationTemplates, entityTemplates, sele
   }
 
   function openRelationModal(noteId: string) {
+    setContextMenu(null)
     setMenuNoteId(noteId)
     setRelationModalOpen(true)
     setError('')
@@ -337,6 +353,7 @@ export function NotesWorkspace({ notes, relationTemplates, entityTemplates, sele
   }
 
   async function deleteNote(noteId: string) {
+    setContextMenu(null)
     setDeleteBusyId(noteId)
     const response = await fetch(`/api/entities/${noteId}`, { method: 'DELETE' })
     setDeleteBusyId('')
@@ -535,26 +552,33 @@ export function NotesWorkspace({ notes, relationTemplates, entityTemplates, sele
                 }}
                 onContextMenu={(event) => {
                   event.preventDefault()
-                  openRelationModal(note.id)
+                  setContextMenu({ noteId: note.id, x: event.clientX, y: event.clientY })
                 }}
                 type="button"
               >
                 <span className="notes-tree-name">{note.name}</span>
-                <span className="notes-tree-meta">{note.type || 'Untyped note'}</span>
-              </button>
-              <button
-                className="notes-delete-button"
-                disabled={deleteBusyId === note.id}
-                onClick={() => deleteNote(note.id)}
-                type="button"
-              >
-                Delete
               </button>
             </div>
           ))}
           {!visibleNotes.length ? <div className="empty">No notes match the current query.</div> : null}
         </div>
       </aside>
+
+      {contextMenu ? (
+        <div className="notes-context-menu" style={{ left: contextMenu.x, top: contextMenu.y }}>
+          <button className="notes-context-item" onClick={() => openRelationModal(contextMenu.noteId)} type="button">
+            创建关系
+          </button>
+          <button
+            className="notes-context-item danger"
+            disabled={deleteBusyId === contextMenu.noteId}
+            onClick={() => deleteNote(contextMenu.noteId)}
+            type="button"
+          >
+            {deleteBusyId === contextMenu.noteId ? '删除中...' : '删除笔记'}
+          </button>
+        </div>
+      ) : null}
 
       <section className="notes-main notes-main-plain">
         {!activeNoteId ? (

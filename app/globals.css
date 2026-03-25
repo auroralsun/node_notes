@@ -1934,3 +1934,72 @@ body::before {
     align-items: flex-start;
   }
 }
+
+/* Minimal notes-list style with context actions on right click */
+.notes-sidebar-plain {
+  background: #fcfbf8;
+}
+
+.notes-list-head .field-group-desc {
+  color: var(--text-muted);
+}
+
+.notes-tree {
+  gap: 4px;
+}
+
+.notes-tree-item {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.notes-tree-item.active,
+.notes-tree-item:hover {
+  background: rgba(94, 74, 54, 0.06);
+  border-color: rgba(94, 74, 54, 0.12);
+}
+
+.notes-tree-trigger {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+}
+
+.notes-tree-name {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.notes-context-menu {
+  position: fixed;
+  z-index: 40;
+  min-width: 160px;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fffdfa;
+  box-shadow: 0 16px 30px rgba(66, 49, 30, 0.12);
+}
+
+.notes-context-item {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  text-align: left;
+  padding: 8px 10px;
+  background: transparent;
+  color: var(--text);
+}
+
+.notes-context-item:hover {
+  background: rgba(94, 74, 54, 0.08);
+}
+
+.notes-context-item.danger {
+  color: #b42318;
+}
