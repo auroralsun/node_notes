@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Entity {
+  id        String   @id @default(cuid())
+  name      String
+  type      String
+  summary   String?
+  propsJson Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  outgoingRelations Relation[] @relation("OutgoingRelations")
+  incomingRelations Relation[] @relation("IncomingRelations")
+
+  @@index([name])
+  @@index([type])
+}
+
+model Relation {
+  id           String   @id @default(cuid())
+  relationType String
+  propsJson    Json
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  fromEntityId String
+  toEntityId   String
+
+  fromEntity Entity @relation("OutgoingRelations", fields: [fromEntityId], references: [id], onDelete: Cascade)
+  toEntity   Entity @relation("IncomingRelations", fields: [toEntityId], references: [id], onDelete: Cascade)
+
+  @@index([fromEntityId])
+  @@index([toEntityId])
+  @@index([relationType])
+}
+
+model EntityTypeTemplate {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  schemaJson  Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model RelationTypeTemplate {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  schemaJson  Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
