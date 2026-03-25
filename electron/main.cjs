@@ -37,12 +37,12 @@ function createMainWindow() {
     minWidth: 1100,
     minHeight: 760,
     autoHideMenuBar: true,
-    title: 'Knowledge Graph Notes',
-    backgroundColor: '#0f1115',
+    title: '知识图谱笔记',
+    backgroundColor: '#f8f3ea',
     titleBarStyle: 'hidden',
     titleBarOverlay: {
-      color: '#0f1115',
-      symbolColor: '#f5f5f4',
+      color: '#f8f3ea',
+      symbolColor: '#3f3124',
       height: 56
     },
     show: false,

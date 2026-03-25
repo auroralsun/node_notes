@@ -48,7 +48,7 @@ export default async function HomePage() {
       {recentNotes.length ? (
         <GraphCanvas focusEntityId={recentNotes[0].id} nodes={nodes} edges={[...edgeMap.values()]} minimal />
       ) : (
-        <div className="empty home-empty">No recent notes are available yet.</div>
+        <div className="empty home-empty">暂无最近笔记。</div>
       )}
     </main>
   )

@@ -1,40 +1,4 @@
-:root,
-html[data-theme='dark'] {
-  color-scheme: dark;
-  --bg: #0f1115;
-  --bg-accent: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03), transparent 24%), radial-gradient(circle at top right, rgba(255, 255, 255, 0.02), transparent 18%), linear-gradient(180deg, #121418 0%, #0d0f13 100%);
-  --sidebar: rgba(16, 18, 22, 0.88);
-  --panel: rgba(24, 26, 31, 0.88);
-  --panel-strong: rgba(28, 30, 36, 0.96);
-  --panel-soft: rgba(255, 255, 255, 0.025);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --text: #f5f5f4;
-  --text-soft: #e7e5e4;
-  --text-muted: #a8a29e;
-  --accent: #d6d3d1;
-  --accent-strong: #f5f5f4;
-  --accent-soft: rgba(255, 255, 255, 0.06);
-  --success-soft: rgba(255, 255, 255, 0.05);
-  --danger: #ef4444;
-  --code-bg: #111317;
-  --graph-bg: linear-gradient(180deg, rgba(20, 22, 26, 0.96), rgba(14, 15, 18, 0.98));
-  --graph-grid: rgba(255,255,255,0.02);
-  --graph-node: rgba(34, 36, 41, 0.96);
-  --graph-node-stroke: rgba(255, 255, 255, 0.12);
-  --graph-focus: rgba(235, 231, 228, 0.92);
-  --graph-focus-stroke: rgba(255, 255, 255, 0.26);
-  --graph-edge: rgba(245, 245, 244, 0.22);
-  --graph-edge-label-bg: rgba(24, 26, 31, 0.94);
-  --graph-edge-label-stroke: rgba(255, 255, 255, 0.08);
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-  --radius-xl: 28px;
-  --radius-lg: 20px;
-  --radius-md: 16px;
-  --radius-sm: 12px;
-}
-
-html[data-theme='light'] {
+:root {
   color-scheme: light;
   --bg: #f6f1e8;
   --bg-accent: radial-gradient(circle at top left, rgba(120, 98, 68, 0.06), transparent 24%), radial-gradient(circle at top right, rgba(196, 177, 152, 0.12), transparent 20%), linear-gradient(180deg, #f8f3ea 0%, #f2ece2 100%);
@@ -205,7 +169,7 @@ html[data-runtime='desktop'] a {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-html[data-theme='light'] .brand-badge {
+.brand-badge {
   color: #fffaf3;
 }
 

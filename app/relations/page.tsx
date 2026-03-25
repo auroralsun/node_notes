@@ -51,35 +51,34 @@ export default async function RelationsPage({ searchParams }: PageProps) {
     <main className="grid">
       <section className="page-header">
         <div>
-          <span className="page-kicker">Relations Workspace</span>
-          <h2 className="page-title">Relations</h2>
+          <span className="page-kicker">关系工作台</span>
+          <h2 className="page-title">关系</h2>
           <p className="page-subtitle">
-            This is where semantic links live: filter them, create them from templates, and refine
-            their structured properties.
+            在这里管理语义连接：筛选关系、按模板创建，并完善结构化属性。
           </p>
         </div>
       </section>
 
       <section className="stats-grid">
         <article className="stat-card">
-          <div className="stat-label">Filtered relations</div>
+          <div className="stat-label">筛选结果</div>
           <div className="stat-value">{relations.length}</div>
-          <div className="stat-note">Within the current view</div>
+          <div className="stat-note">当前视图内</div>
         </article>
         <article className="stat-card">
-          <div className="stat-label">Available entities</div>
+          <div className="stat-label">可用实体</div>
           <div className="stat-value">{entities.length}</div>
-          <div className="stat-note">Ready to be linked</div>
+          <div className="stat-note">可直接建立连接</div>
         </article>
         <article className="stat-card">
-          <div className="stat-label">Relation templates</div>
+          <div className="stat-label">关系模板</div>
           <div className="stat-value">{templates.length}</div>
-          <div className="stat-note">Reusable schema defaults</div>
+          <div className="stat-note">可复用的字段默认值</div>
         </article>
         <article className="stat-card">
-          <div className="stat-label">View mode</div>
-          <div className="stat-value">Graph</div>
-          <div className="stat-note">Structured network thinking</div>
+          <div className="stat-label">视图模式</div>
+          <div className="stat-value">图谱</div>
+          <div className="stat-note">结构化网络视角</div>
         </article>
       </section>
 
@@ -87,8 +86,8 @@ export default async function RelationsPage({ searchParams }: PageProps) {
 
       <section className="grid grid-2">
         <article className="card">
-          <h2 className="section-title">Create relation</h2>
-          <p className="section-subtitle">Use templates and explicit types to keep relation semantics consistent.</p>
+          <h2 className="section-title">新建关系</h2>
+          <p className="section-subtitle">使用模板与明确类型，保持关系语义一致。</p>
           <RelationForm
             templates={templates.map((template: { id: string; name: string; schemaJson: unknown }) => ({
               id: template.id,
@@ -100,8 +99,8 @@ export default async function RelationsPage({ searchParams }: PageProps) {
         </article>
 
         <article className="card">
-          <h2 className="section-title">Relation list</h2>
-          <p className="section-subtitle">Recently updated relations stay near the top so cleanup work is faster.</p>
+          <h2 className="section-title">关系列表</h2>
+          <p className="section-subtitle">最近更新的关系会置顶，便于快速整理。</p>
           {relations.length ? (
             <div className="entity-list">
               {relations.map((relation) => (
@@ -123,7 +122,7 @@ export default async function RelationsPage({ searchParams }: PageProps) {
               ))}
             </div>
           ) : (
-            <div className="empty">No relations match the current filter.</div>
+            <div className="empty">当前筛选条件下暂无关系。</div>
           )}
         </article>
       </section>

@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation'
 import type { Route } from 'next'
 
 const tabs: Array<{ href: Route; label: string; hint: string }> = [
-  { href: '/', label: 'Home', hint: 'Recent graph' },
-  { href: '/entities', label: 'Notes', hint: 'All notes' }
+  { href: '/', label: '主页', hint: '最近关系图' },
+  { href: '/entities', label: '笔记', hint: '全部笔记' }
 ]
 
 export function TopTabs() {

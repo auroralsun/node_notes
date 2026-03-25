@@ -58,13 +58,13 @@ export function GraphCanvas({ focusEntityId, nodes, edges, minimal = false }: Gr
       {!minimal ? (
         <div className="graph-toolbar">
           <div>
-            <h3 className="section-title">Recent note graph</h3>
-            <p className="section-subtitle">The newest note stays in the center and nearby relations expand around it.</p>
+            <h3 className="section-title">最近笔记图谱</h3>
+            <p className="section-subtitle">最新笔记居中展示，周边关系向外展开。</p>
           </div>
           <div className="graph-badges">
-            <span className="badge success">{nodes.length} notes</span>
-            <span className="badge">{edges.length} links</span>
-            <span className="badge">density {relationDensity}</span>
+            <span className="badge success">{nodes.length} 笔记</span>
+            <span className="badge">{edges.length} 连接</span>
+            <span className="badge">密度 {relationDensity}</span>
           </div>
         </div>
       ) : null}
@@ -114,12 +114,12 @@ export function GraphCanvas({ focusEntityId, nodes, edges, minimal = false }: Gr
         </svg>
 
         <div className={minimal ? 'graph-overlay-card graph-overlay-card-home' : 'graph-overlay-card'}>
-          <div className="graph-overlay-label">{minimal ? 'Recent edits' : 'Focus note'}</div>
-          <div className="graph-overlay-title">{focusNode?.name ?? 'N/A'}</div>
+          <div className="graph-overlay-label">{minimal ? '最近编辑' : '焦点笔记'}</div>
+          <div className="graph-overlay-title">{focusNode?.name ?? '暂无'}</div>
           <p className="graph-overlay-text">
-            {focusNode?.summary ?? 'The centered note anchors the recent relationship view.'}
+            {focusNode?.summary ?? '中心笔记用于锚定最近关系视图。'}
           </p>
-          {minimal ? <div className="graph-overlay-meta">{nodes.length} notes · {edges.length} links · density {relationDensity}</div> : null}
+          {minimal ? <div className="graph-overlay-meta">{nodes.length} 笔记 · {edges.length} 连接 · 密度 {relationDensity}</div> : null}
         </div>
       </div>
 
@@ -132,14 +132,14 @@ export function GraphCanvas({ focusEntityId, nodes, edges, minimal = false }: Gr
                   <h4 className="entity-item-title">{node.name}</h4>
                   <div className="entity-meta">
                     <span className={node.id === focusEntityId ? 'badge success' : 'badge'}>{node.type}</span>
-                    {node.id === focusEntityId ? <span>Focus</span> : null}
+                    {node.id === focusEntityId ? <span>当前焦点</span> : null}
                   </div>
                 </div>
                 <Link className="button ghost" href={`/entities/${node.id}`}>
-                  Open
+                  打开
                 </Link>
               </div>
-              <div className="entity-item-summary">{node.summary || 'No summary available.'}</div>
+              <div className="entity-item-summary">{node.summary || '暂无摘要。'}</div>
             </div>
           ))}
         </div>
