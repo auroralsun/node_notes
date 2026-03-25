@@ -54,7 +54,7 @@ export function RelationForm({ entities, focusEntityId, templates = [] }: Relati
 
     if (!response.ok) {
       const data = (await response.json().catch(() => null)) as { error?: string } | null
-      setError(data?.error ?? 'Failed to create relation.')
+      setError(data?.error ?? '创建关系失败。')
       setSaving(false)
       return
     }
@@ -69,16 +69,16 @@ export function RelationForm({ entities, focusEntityId, templates = [] }: Relati
       <div className="field-group">
         <div className="field-group-head">
           <div>
-            <div className="field-group-title">Template and semantics</div>
-            <div className="field-group-desc">Choose a template first, then connect source, target, and relation type.</div>
+            <div className="field-group-title">模板与语义</div>
+            <div className="field-group-desc">先选择模板，再设置源实体、目标实体和关系类型。</div>
           </div>
-          <span className="badge">{templates.length} templates</span>
+          <span className="badge">{templates.length} 个模板</span>
         </div>
 
         <div className="field">
-          <label className="label">Relation template</label>
+          <label className="label">关系模板</label>
           <select className="select" value={templateId} onChange={(event) => setTemplateId(event.target.value)}>
-            <option value="">No template</option>
+            <option value="">不使用模板</option>
             {templates.map((template) => (
               <option key={template.id} value={template.id}>
                 {template.name}
@@ -86,21 +86,21 @@ export function RelationForm({ entities, focusEntityId, templates = [] }: Relati
             ))}
           </select>
         </div>
-        {selectedTemplate ? <div className="helper-text">Selected template: {selectedTemplate.name}</div> : null}
+        {selectedTemplate ? <div className="helper-text">已选模板：{selectedTemplate.name}</div> : null}
       </div>
 
       <div className="field-group">
         <div className="field-group-head">
           <div>
-            <div className="field-group-title">Connected entities</div>
-            <div className="field-group-desc">Attach the semantic relation to explicit source and target notes.</div>
+            <div className="field-group-title">连接实体</div>
+            <div className="field-group-desc">为关系明确指定源实体与目标实体。</div>
           </div>
         </div>
 
         <div className="field">
-          <label className="label">Source entity</label>
+          <label className="label">源实体</label>
           <select className="select" value={fromEntityId} onChange={(event) => setFromEntityId(event.target.value)}>
-            <option value="">Choose an entity</option>
+            <option value="">请选择实体</option>
             {entities.map((entity) => (
               <option key={entity.id} value={entity.id}>
                 {entity.name} · {entity.type}
@@ -110,14 +110,14 @@ export function RelationForm({ entities, focusEntityId, templates = [] }: Relati
         </div>
 
         <div className="field">
-          <label className="label">Relation type</label>
-          <input className="input" value={relationType} onChange={(event) => setRelationType(event.target.value)} placeholder="e.g. references / depends_on / causes" />
+          <label className="label">关系类型</label>
+          <input className="input" value={relationType} onChange={(event) => setRelationType(event.target.value)} placeholder="例如：引用 / 依赖于 / 导致" />
         </div>
 
         <div className="field">
-          <label className="label">Target entity</label>
+          <label className="label">目标实体</label>
           <select className="select" value={toEntityId} onChange={(event) => setToEntityId(event.target.value)}>
-            <option value="">Choose an entity</option>
+            <option value="">请选择实体</option>
             {entities.map((entity) => (
               <option key={entity.id} value={entity.id}>
                 {entity.name} · {entity.type}
@@ -131,7 +131,7 @@ export function RelationForm({ entities, focusEntityId, templates = [] }: Relati
 
       <div className="actions">
         <button className="button" disabled={saving} type="submit">
-          {saving ? 'Creating...' : 'Create relation'}
+          {saving ? '创建中...' : '创建关系'}
         </button>
       </div>
     </form>

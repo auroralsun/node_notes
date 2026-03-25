@@ -1,68 +1,32 @@
-:root,
-html[data-theme='dark'] {
-  color-scheme: dark;
-  --bg: #0f1115;
-  --bg-accent: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03), transparent 24%), radial-gradient(circle at top right, rgba(255, 255, 255, 0.02), transparent 18%), linear-gradient(180deg, #121418 0%, #0d0f13 100%);
-  --sidebar: rgba(16, 18, 22, 0.88);
-  --panel: rgba(24, 26, 31, 0.88);
-  --panel-strong: rgba(28, 30, 36, 0.96);
-  --panel-soft: rgba(255, 255, 255, 0.025);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.16);
-  --text: #f5f5f4;
-  --text-soft: #e7e5e4;
-  --text-muted: #a8a29e;
-  --accent: #d6d3d1;
-  --accent-strong: #f5f5f4;
-  --accent-soft: rgba(255, 255, 255, 0.06);
-  --success-soft: rgba(255, 255, 255, 0.05);
-  --danger: #ef4444;
-  --code-bg: #111317;
-  --graph-bg: linear-gradient(180deg, rgba(20, 22, 26, 0.96), rgba(14, 15, 18, 0.98));
-  --graph-grid: rgba(255,255,255,0.02);
-  --graph-node: rgba(34, 36, 41, 0.96);
-  --graph-node-stroke: rgba(255, 255, 255, 0.12);
-  --graph-focus: rgba(235, 231, 228, 0.92);
-  --graph-focus-stroke: rgba(255, 255, 255, 0.26);
-  --graph-edge: rgba(245, 245, 244, 0.22);
-  --graph-edge-label-bg: rgba(24, 26, 31, 0.94);
-  --graph-edge-label-stroke: rgba(255, 255, 255, 0.08);
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-  --radius-xl: 28px;
-  --radius-lg: 20px;
-  --radius-md: 16px;
-  --radius-sm: 12px;
-}
-
-html[data-theme='light'] {
+:root {
   color-scheme: light;
-  --bg: #f6f1e8;
-  --bg-accent: radial-gradient(circle at top left, rgba(120, 98, 68, 0.06), transparent 24%), radial-gradient(circle at top right, rgba(196, 177, 152, 0.12), transparent 20%), linear-gradient(180deg, #f8f3ea 0%, #f2ece2 100%);
-  --sidebar: rgba(247, 241, 232, 0.88);
-  --panel: rgba(255, 251, 245, 0.92);
-  --panel-strong: rgba(255, 249, 241, 0.98);
-  --panel-soft: rgba(135, 110, 78, 0.05);
-  --border: rgba(125, 102, 73, 0.14);
-  --border-strong: rgba(125, 102, 73, 0.22);
-  --text: #2b241c;
-  --text-soft: #43372b;
-  --text-muted: #7a6857;
-  --accent: #5e4a36;
-  --accent-strong: #3f3124;
-  --accent-soft: rgba(110, 87, 60, 0.08);
-  --success-soft: rgba(110, 87, 60, 0.08);
+  --bg: #fdfaf5;
+  --bg-accent: radial-gradient(circle at top left, rgba(181, 148, 107, 0.08), transparent 26%), radial-gradient(circle at top right, rgba(232, 216, 193, 0.2), transparent 22%), linear-gradient(180deg, #fffdf9 0%, #f9f4ec 100%);
+  --sidebar: rgba(253, 250, 244, 0.92);
+  --panel: rgba(255, 254, 251, 0.95);
+  --panel-strong: rgba(255, 253, 248, 0.99);
+  --panel-soft: rgba(150, 123, 89, 0.055);
+  --border: rgba(130, 103, 70, 0.12);
+  --border-strong: rgba(130, 103, 70, 0.2);
+  --text: #2f261d;
+  --text-soft: #4a3b2c;
+  --text-muted: #85705b;
+  --accent: #7b5b3a;
+  --accent-strong: #5d4228;
+  --accent-soft: rgba(123, 91, 58, 0.1);
+  --success-soft: rgba(123, 91, 58, 0.09);
   --danger: #c2410c;
-  --code-bg: #f0e7da;
-  --graph-bg: linear-gradient(180deg, rgba(251, 246, 238, 0.98), rgba(244, 236, 225, 1));
-  --graph-grid: rgba(125, 102, 73, 0.06);
-  --graph-node: rgba(255, 250, 243, 0.98);
-  --graph-node-stroke: rgba(125, 102, 73, 0.18);
-  --graph-focus: rgba(94, 74, 54, 0.92);
-  --graph-focus-stroke: rgba(94, 74, 54, 0.24);
-  --graph-edge: rgba(94, 74, 54, 0.2);
-  --graph-edge-label-bg: rgba(255, 250, 243, 0.98);
-  --graph-edge-label-stroke: rgba(125, 102, 73, 0.12);
-  --shadow: 0 24px 54px rgba(89, 69, 45, 0.1);
+  --code-bg: #f6efe3;
+  --graph-bg: linear-gradient(180deg, rgba(255, 253, 249, 0.98), rgba(248, 241, 231, 1));
+  --graph-grid: rgba(130, 103, 70, 0.06);
+  --graph-node: rgba(255, 253, 248, 0.98);
+  --graph-node-stroke: rgba(130, 103, 70, 0.16);
+  --graph-focus: rgba(111, 82, 51, 0.9);
+  --graph-focus-stroke: rgba(111, 82, 51, 0.24);
+  --graph-edge: rgba(111, 82, 51, 0.2);
+  --graph-edge-label-bg: rgba(255, 253, 248, 0.98);
+  --graph-edge-label-stroke: rgba(130, 103, 70, 0.12);
+  --shadow: 0 24px 54px rgba(108, 82, 53, 0.1);
   --radius-xl: 28px;
   --radius-lg: 20px;
   --radius-md: 16px;
@@ -205,7 +169,7 @@ html[data-runtime='desktop'] a {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-html[data-theme='light'] .brand-badge {
+.brand-badge {
   color: #fffaf3;
 }
 
@@ -1969,4 +1933,73 @@ body::before {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* Minimal notes-list style with context actions on right click */
+.notes-sidebar-plain {
+  background: #fcfbf8;
+}
+
+.notes-list-head .field-group-desc {
+  color: var(--text-muted);
+}
+
+.notes-tree {
+  gap: 4px;
+}
+
+.notes-tree-item {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.notes-tree-item.active,
+.notes-tree-item:hover {
+  background: rgba(94, 74, 54, 0.06);
+  border-color: rgba(94, 74, 54, 0.12);
+}
+
+.notes-tree-trigger {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+}
+
+.notes-tree-name {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.notes-context-menu {
+  position: fixed;
+  z-index: 40;
+  min-width: 160px;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fffdfa;
+  box-shadow: 0 16px 30px rgba(66, 49, 30, 0.12);
+}
+
+.notes-context-item {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  text-align: left;
+  padding: 8px 10px;
+  background: transparent;
+  color: var(--text);
+}
+
+.notes-context-item:hover {
+  background: rgba(94, 74, 54, 0.08);
+}
+
+.notes-context-item.danger {
+  color: #b42318;
 }

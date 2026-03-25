@@ -29,24 +29,24 @@ export function RelationFilterForm() {
     <form className="card form-grid" onSubmit={handleSubmit}>
       <div className="field-group-head">
         <div>
-          <div className="field-group-title">Filter relations</div>
-          <div className="field-group-desc">Quickly narrow the graph by relation type or by connected entity name.</div>
+          <div className="field-group-title">筛选关系</div>
+          <div className="field-group-desc">按关系类型或关联实体名快速缩小范围。</div>
         </div>
-        <span className="badge">Filter</span>
+        <span className="badge">筛选</span>
       </div>
       <div className="grid grid-2">
         <div className="field">
-          <label className="label">Relation type</label>
-          <input className="input" value={relationType} onChange={(event) => setRelationType(event.target.value)} placeholder="e.g. belongs_to" />
+          <label className="label">关系类型</label>
+          <input className="input" value={relationType} onChange={(event) => setRelationType(event.target.value)} placeholder="例如：belongs_to" />
         </div>
         <div className="field">
-          <label className="label">Entity name</label>
-          <input className="input" value={entityName} onChange={(event) => setEntityName(event.target.value)} placeholder="Search source or target entity" />
+          <label className="label">实体名称</label>
+          <input className="input" value={entityName} onChange={(event) => setEntityName(event.target.value)} placeholder="搜索源实体或目标实体" />
         </div>
       </div>
       <div className="actions">
-        <button className="button" type="submit">Apply filter</button>
-        <button className="button secondary" onClick={() => router.push('/relations' as Route)} type="button">Reset</button>
+        <button className="button" type="submit">应用筛选</button>
+        <button className="button secondary" onClick={() => router.push('/relations' as Route)} type="button">重置</button>
       </div>
     </form>
   )

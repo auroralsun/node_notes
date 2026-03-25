@@ -1,20 +1,17 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import { ThemeToggle } from '@/components/theme-toggle'
 import { TopTabs } from '@/components/top-tabs'
 
 export const metadata: Metadata = {
-  title: 'Knowledge Graph Notes',
-  description: 'A warm, note-first workspace for structured knowledge'
+  title: '知识图谱笔记',
+  description: '以笔记为中心的结构化知识工作台'
 }
 
 const themeInitScript = `
 (function () {
   try {
-    var saved = localStorage.getItem('kgn-theme');
-    var theme = saved === 'dark' ? 'dark' : 'light';
-    document.documentElement.dataset.theme = theme;
+    document.documentElement.dataset.theme = 'light';
 
     if (window.desktopApp && window.desktopApp.isDesktop) {
       document.documentElement.dataset.runtime = 'desktop';
@@ -35,13 +32,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <div className="brand-row">
                   <div className="brand-badge">N</div>
                   <div>
-                    <h1 className="brand-title">Notes</h1>
-                    <p className="brand-subtitle">Entity as note, property as page, relation as link.</p>
+                    <h1 className="brand-title">知识笔记</h1>
+                    <p className="brand-subtitle">实体即笔记、属性即页面、关系即连接。</p>
                   </div>
                 </div>
               </div>
 
-              <ThemeToggle />
             </div>
             <TopTabs />
           </header>
